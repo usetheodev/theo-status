@@ -1,31 +1,39 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Upptime config — public status page + uptime monitor for the Theo ecosystem.
+# Docs: https://upptime.js.org/docs/configuration
+#
+# Principle: the status page must live OUTSIDE the infrastructure it monitors.
+# This repo runs on GitHub Actions (checks every 5 min), records history as git
+# commits, opens a public Issue on every incident, and publishes the site via
+# GitHub Pages at status.usetheo.dev — none of which touches TheoCloud or the
+# Cloudflare Pages project that serves usetheo.dev.
+
+owner: usetheodev
+repo: theo-status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Test Broken Site
-    url: https://thissitedoesnotexist.koj.co
+  - name: usetheo.dev (marketing site)
+    url: https://usetheo.dev
+  - name: Docs (docs.usetheo.dev)
+    url: https://docs.usetheo.dev
+  - name: Blog (blog.usetheo.dev)
+    url: https://blog.usetheo.dev
+  # get.usetheo.dev (install endpoint) intentionally NOT monitored yet:
+  # the domain does not resolve today (checked 2026-07-07). Add it back the
+  # day it ships — a monitor born red is noise, not signal.
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.usetheo.dev
+  logoUrl: https://usetheo.dev/logo-128.png
+  name: Theo Status
+  introTitle: "**Theo** ecosystem status — live, automated, public."
+  introMessage: Checks run every 5 minutes from GitHub Actions. Every incident is a public [GitHub Issue](https://github.com/usetheodev/theo-status/issues) with a full timeline — history is auditable as git commits. Part of our [honesty policy](https://usetheo.dev/honesty).
   navbar:
     - title: Status
       href: /
+    - title: usetheo.dev
+      href: https://usetheo.dev
+    - title: Honesty
+      href: https://usetheo.dev/honesty
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+  theme: dark
